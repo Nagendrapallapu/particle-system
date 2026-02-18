@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Interactive 3D particle system controlled by hand gestures — Three.js + MediaPipe" />
+  <title>GestureFX — Interactive 3D Particles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-orbs">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <h1 class="loader-title">GestureFX</h1>
+      <p id="loading-status">Initializing particle engine…</p>
+      <div class="loader-bar">
+        <div class="loader-bar-fill" id="loader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Webcam Preview -->
+  <div id="webcam-preview">
+    <canvas id="webcam-canvas" width="320" height="240"></canvas>
+    <div id="hand-status">
+      <span class="status-dot" id="hand-dot"></span>
+      <span id="hand-label">No hand</span>
+    </div>
+  </div>
+
+  <!-- Shape Indicator (animated on change) -->
+  <div id="shape-indicator" class="hidden">
+    <span id="shape-emoji">🌀</span>
+    <span id="shape-name">Galaxy</span>
+  </div>
+
+  <!-- HUD Info -->
+  <div id="hud">
+    <div id="fps-counter">60 FPS</div>
+    <div id="particle-count">20 000 particles</div>
+  </div>
+
+  <!-- Controls Panel -->
+  <div id="controls-panel">
+    <div class="panel-header">
+      <span class="panel-title">GestureFX</span>
+      <button id="toggle-controls" aria-label="Toggle controls">▼</button>
+    </div>
+    <div class="panel-body" id="controls-body">
+      <h3>Hand Gestures</h3>
+      <div class="gesture-grid">
+        <div class="gesture-item"><span class="gesture-icon">✊</span><span>Fist → Heart</span></div>
+        <div class="gesture-item"><span class="gesture-icon">☝️</span><span>Point → Fireworks</span></div>
+        <div class="gesture-item"><span class="gesture-icon">✌️</span><span>Peace → Flower</span></div>
+        <div class="gesture-item"><span class="gesture-icon">🤟</span><span>Rock → Saturn</span></div>
+        <div class="gesture-item"><span class="gesture-icon">🖐️</span><span>Open → Galaxy</span></div>
+        <div class="gesture-item"><span class="gesture-icon">🤏</span><span>Pinch → DNA</span></div>
+      </div>
+      <h3>Keyboard</h3>
+      <div class="gesture-grid">
+        <div class="gesture-item"><kbd>1</kbd><span>Heart</span></div>
+        <div class="gesture-item"><kbd>2</kbd><span>Flower</span></div>
+        <div class="gesture-item"><kbd>3</kbd><span>Saturn</span></div>
+        <div class="gesture-item"><kbd>4</kbd><span>Fireworks</span></div>
+        <div class="gesture-item"><kbd>5</kbd><span>Galaxy</span></div>
+        <div class="gesture-item"><kbd>6</kbd><span>DNA</span></div>
+        <div class="gesture-item"><kbd>7</kbd><span>Star</span></div>
+        <div class="gesture-item"><kbd>8</kbd><span>Tornado</span></div>
+        <div class="gesture-item"><kbd>0</kbd><span>Sphere</span></div>
+        <div class="gesture-item"><kbd>C</kbd><span>Cycle Color</span></div>
+        <div class="gesture-item"><kbd>H</kbd><span>Toggle Panel</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
